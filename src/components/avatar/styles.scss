@@ -1,0 +1,30 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.small {
+  @include avatar-s;
+}
+
+.medium {
+  @include avatar-m;
+}
+
+.large {
+  @include avatar-l;
+}
+
+.x-large {
+  @include avatar-xl;
+}
+
+.square {
+  @include avatar-square;
+}
+
+.rounded {
+  @include avatar-rounded;
+}
+
+.circle {
+  @include avatar-circle;
+}

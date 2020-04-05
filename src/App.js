@@ -1,25 +1,20 @@
 import React from "react";
+
+//Styles
 import "./styles/App.scss";
 
+//Data
+import employees from "./data/employees.json";
+
+//Components
+import SiteHeader from "./components/siteHeader";
+import CardsContainer from "./components/cardsContainer";
+import SiteFooter from "./components/siteFooter";
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+  return <main className="App">
+    
+  </main>;
 }
 
 export default App;
