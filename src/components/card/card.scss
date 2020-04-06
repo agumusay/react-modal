@@ -1,0 +1,44 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid $text-secondary;
+
+  &-bar {
+    background-color: rgb(80, 80, 80);
+    width: 100%;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    padding-top: 15px;
+
+    &-avatar {
+      border: 5px solid $card-primary;
+      background-color: $card-primary;
+      transition: transform 0.5s ease-in-out;
+    }
+  }
+
+  &-info {
+    padding: 40px;
+    padding-top: 45px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &-name {
+      margin-bottom: 5px;
+    }
+    &-position {
+      color: $text-secondary;
+      text-align: center;
+    }
+  }
+}
+
+.card:hover .card-bar-avatar {
+  transform: rotate(-20deg);
+}

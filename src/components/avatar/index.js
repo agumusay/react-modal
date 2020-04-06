@@ -1,17 +1,22 @@
 import React from "react";
-import "./styles.scss";
+import "./avatar.scss";
 import propTypes from "prop-types";
 
-function Avatar({ url = "", type = "square", size = "medium" }) {
-  return (
-    <img
-      className={`modal-content-avatar ${type} ${size}`}
-      src={url}
-      alt={`avatar-${type}-${size}`}
-    ></img>
-  );
+class Avatar extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { type: "square", size: "medium" };
+  }
+  render() {
+    return (
+      <img
+        className={`${this.props.name} ${this.props.type} ${this.props.size}`}
+        src={this.props.url}
+        alt={``}
+      ></img>
+    );
+  }
 }
-
 Avatar.propTypes = {
   url: propTypes.string,
   type: propTypes.oneOf(["square", "rounded", "circle"]),

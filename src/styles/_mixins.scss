@@ -1,0 +1,31 @@
+@import "variables";
+
+@mixin avatar-s {
+  width: 30px;
+  height: 30px;
+}
+
+@mixin avatar-m {
+  width: 80px;
+  height: 80px;
+}
+@mixin avatar-l {
+  width: 120px;
+  height: 120px;
+}
+@mixin avatar-xl {
+  width: 200px;
+  height: 200px;
+}
+
+@mixin avatar-square {
+  border-radius: none;
+}
+
+@mixin avatar-rounded {
+  border-radius: 0.5vw;
+}
+
+@mixin avatar-circle {
+  border-radius: 100%;
+}

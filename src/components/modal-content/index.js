@@ -1,5 +1,5 @@
 import React from "react";
-import Avatar from "../avatar";
+
 
 class ModalContent extends React.Component {
   constructor(props) {
@@ -7,14 +7,7 @@ class ModalContent extends React.Component {
     this.state = {};
   }
   render() {
-    return (
-      <section className="modal-content">
-        <Avatar />
-        <h4 className="modal-content-category">{/*Category*/}</h4>
-        <div className="modal-content-title">{/*Title*/}</div>
-        p.
-      </section>
-    );
+    return "something";
   }
 }
 
