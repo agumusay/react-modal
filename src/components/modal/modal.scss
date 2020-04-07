@@ -2,10 +2,27 @@
 @import "../../styles/variables";
 
 .modal {
-  position: absolute;
-  min-width: 60%;
-  min-height: 300px;
+  display: flex;
+  justify-content: center;
+  min-width: 50%;
+  height: 100%;
   background-color: aqua;
-  top: 0;
+  position: absolute;
   left: 0;
+  top: 0;
+  &-content {
+    width: 60%;
+    height: 60vh;
+    top: 20vh;
+    background-color: red;
+    position: absolute;
+    left: 20%;
+  }
+  &-wrapper-close {
+    width: 10px;
+    height: 10px;
+    background-color: blue;
+  }
+  &-wrapper-header {
+  }
 }

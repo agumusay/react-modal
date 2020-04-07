@@ -3,9 +3,7 @@ import React from "react";
 class Modal extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      visible: false,
-    };
+    this.state = {};
 
     this.employee = this.props.employee;
   }

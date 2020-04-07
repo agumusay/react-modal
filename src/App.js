@@ -10,7 +10,7 @@ import employees from "./data/employees.json";
 import SiteHeader from "./components/site-header";
 import CardsContainer from "./components/cardsContainer";
 import SiteFooter from "./components/site-footer";
-import Modal from "./components/modal";
+
 
 function App() {
   return (
@@ -20,9 +20,9 @@ function App() {
         Our team of <span className="employee-count">{employees.length}</span> strategists,
         designers, managers, developers make custom products for startups and leading brands.
       </p>
-      <CardsContainer employees={employees} />
+      <CardsContainer employees={employees}  />
       <SiteFooter />
-      <Modal></Modal>
+      
     </main>
   );
 }
