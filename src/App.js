@@ -11,7 +11,6 @@ import SiteHeader from "./components/site-header";
 import CardsContainer from "./components/cardsContainer";
 import SiteFooter from "./components/site-footer";
 
-
 function App() {
   return (
     <main className="App">
@@ -20,9 +19,8 @@ function App() {
         Our team of <span className="employee-count">{employees.length}</span> strategists,
         designers, managers, developers make custom products for startups and leading brands.
       </p>
-      <CardsContainer employees={employees}  />
+      <CardsContainer employees={employees} />
       <SiteFooter />
-      
     </main>
   );
 }

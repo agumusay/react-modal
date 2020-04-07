@@ -10,6 +10,7 @@
   position: absolute;
   left: 0;
   top: 0;
+  display: none;
   &-content {
     width: 60%;
     height: 60vh;
@@ -25,4 +26,8 @@
   }
   &-wrapper-header {
   }
+}
+
+.show {
+  display: flex;
 }

@@ -1,6 +1,6 @@
 import React from "react";
 import Avatar from "../avatar";
-import ButtonPrevNext from "../button-prev-next";
+import ButtonPrevNext from "../move-button";
 class ModalContent extends React.Component {
   constructor(props) {
     super(props);

@@ -1,49 +1,56 @@
 import "./card.scss";
 import React from "react";
 import Avatar from "../avatar";
-import ButtonPrevNext from "../button-prev-next";
 
 class Card extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       isModalOpen: false,
+      employeeWillUpdate: this.props.employee,
     };
 
+    this.employees = this.props.employees;
     this.employee = this.props.employee;
     this.openModal = this.openModal.bind(this);
+    this.indexOfEmployee = this.employees.indexOf(this.employee);
   }
 
   openModal() {
-    let info = this.passDataToParent();
+    let index = this.passIndexToParent();
+    let modalInfo = this.passDataToParent();
     this.setState({
       isModalOpen: true,
     });
-    this.props.parentCallBack(info);
+    this.props.parentCallBack(modalInfo);
+    this.props.parentCallBack2(true);
+    this.props.parentCallBack3(index);
   }
 
   passDataToParent() {
-    if (!this.state.isModalOpen) {
-      return "";
-    } else {
-      return (
-        <section className="modal-content">
-          <div className="modal-wrapper-close">×</div>
-          <header className="modal-wrapper-header">
-            {this.employee.firstName} {this.employee.lastName}
-          </header>
-          <Avatar url={this.employee.avatar} size="large" type="rounded" />
-          <h4 className="modal-wrapper-content-department">{this.employee.departMent}</h4>
-          <div className="modal-wrapper-content-title">{this.employee.jobTitle}</div>
-          <footer className="modal-wrapper-footer">
-            <ButtonPrevNext />
-            <ButtonPrevNext />
-          </footer>
-        </section>
-      );
-    }
+    return (
+      <div className="modal-content-child">
+        <div className="modal-wrapper-close">×</div>
+        <header className="modal-wrapper-header">
+          {this.state.employeeWillUpdate.firstName} {this.state.employeeWillUpdate.lastName}
+        </header>
+        <Avatar url={this.state.employeeWillUpdate.avatar} size="large" type="rounded" />
+        <h4 className="modal-wrapper-content-department">
+          {this.state.employeeWillUpdate.departMent}
+        </h4>
+        <div className="modal-wrapper-content-title">{this.state.employeeWillUpdate.jobTitle}</div>
+        <footer className="modal-wrapper-footer"></footer>
+      </div>
+    );
   }
 
+  passValueToParent() {
+    return this.state.isModalOpen;
+  }
+
+  passIndexToParent() {
+    return this.indexOfEmployee;
+  }
   render() {
     return (
       <section className="card" onClick={this.openModal}>
