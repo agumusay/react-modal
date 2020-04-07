@@ -8,7 +8,6 @@ class Modal extends React.Component {
     };
 
     this.employee = this.props.employee;
-   
   }
 
   getIndexFromButton = (childIndex) => {

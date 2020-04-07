@@ -11,7 +11,6 @@ class MoveButton extends React.Component {
   }
 
   handleClick() {
-    
     this.setState((state, props) => {
       let index = this.passValueToParent();
       let updatedCounter = state.counter;
