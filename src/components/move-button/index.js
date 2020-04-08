@@ -3,23 +3,15 @@ import React from "react";
 class MoveButton extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      counter: this.props.indexOfEmployee,
-    };
+
+    this.state = {};
+
     this.text = this.props.countType === "next" ? "Next" : "Previous";
     this.handleClick = this.handleClick.bind(this);
   }
 
   handleClick() {
-    this.setState((state, props) => {
-      let index = this.passValueToParent();
-      let updatedCounter = state.counter;
-      props.countType === "next" ? updatedCounter++ : updatedCounter--;
-      props.parentCallBack(index);
-      return {
-        counter: updatedCounter,
-      };
-    });
+    this.props.parentCallBack(this.props.countType);
   }
 
   passValueToParent() {
@@ -27,12 +19,12 @@ class MoveButton extends React.Component {
   }
 
   render() {
-    console.log(this.state.counter);
+    console.log(this.props.indexOfEmployee);
     return (
       <button
         onClick={this.handleClick}
-        disabled={!this.state.counter || this.state.counter === 48}
         className={this.props.clas}
+        disabled={this.props.indexOfEmployee <= -1 || this.props.indexOfEmployee > 41}
       >
         {this.text}
       </button>

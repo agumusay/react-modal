@@ -7,7 +7,6 @@ class Card extends React.Component {
     super(props);
     this.state = {
       isModalOpen: false,
-      employeeWillUpdate: this.props.employee,
     };
 
     this.employees = this.props.employees;
@@ -18,30 +17,11 @@ class Card extends React.Component {
 
   openModal() {
     let index = this.passIndexToParent();
-    let modalInfo = this.passDataToParent();
     this.setState({
       isModalOpen: true,
     });
-    this.props.parentCallBack(modalInfo);
     this.props.parentCallBack2(true);
     this.props.parentCallBack3(index);
-  }
-
-  passDataToParent() {
-    return (
-      <div className="modal-content-child">
-        <div className="modal-wrapper-close">×</div>
-        <header className="modal-wrapper-header">
-          {this.state.employeeWillUpdate.firstName} {this.state.employeeWillUpdate.lastName}
-        </header>
-        <Avatar url={this.state.employeeWillUpdate.avatar} size="large" type="rounded" />
-        <h4 className="modal-wrapper-content-department">
-          {this.state.employeeWillUpdate.departMent}
-        </h4>
-        <div className="modal-wrapper-content-title">{this.state.employeeWillUpdate.jobTitle}</div>
-        <footer className="modal-wrapper-footer"></footer>
-      </div>
-    );
   }
 
   passValueToParent() {

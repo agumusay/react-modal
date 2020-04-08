@@ -1,6 +1,5 @@
 import "./cards-container.scss";
 import React from "react";
-
 import Card from "../../components/card";
 import Modal from "../../components/modal";
 class CardsContainer extends React.Component {
@@ -15,14 +14,10 @@ class CardsContainer extends React.Component {
 
     this.employees = this.props.employees;
   }
+
   getValueFromChild = (childValue) => {
     this.setState({
       open: childValue,
-    });
-  };
-  getDataFromChild = (childData) => {
-    this.setState({
-      data: childData,
     });
   };
 
@@ -37,7 +32,13 @@ class CardsContainer extends React.Component {
       updateIndex: updatedIndex,
     });
   };
+  getUpdatedIndexFromModal2 = (updatedIndex) => {
+    this.setState({
+      updateIndex: updatedIndex,
+    });
+  };
   render() {
+    console.log(this.state.updateIndex);
     return (
       <section className="cards-container">
         {this.employees.map((employee) => {
@@ -46,7 +47,7 @@ class CardsContainer extends React.Component {
               employees={this.employees}
               employee={employee}
               key={employee.id}
-              parentCallBack={this.getDataFromChild}
+              updateIndex={this.state.updateIndex}
               parentCallBack2={this.getValueFromChild}
               parentCallBack3={this.getIndexFromChild}
             />
@@ -54,10 +55,12 @@ class CardsContainer extends React.Component {
         })}
         <Modal
           clas={this.state.open ? "show" : ""}
+          employees={this.employees}
           initialIndex={this.state.index}
           parentCallBack={this.getUpdatedIndexFromModal}
+          parentCallBack2={this.getUpdatedIndexFromModal2}
         >
-          {this.state.data}
+          
         </Modal>
       </section>
     );
