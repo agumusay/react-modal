@@ -1,6 +1,7 @@
 import React from "react";
 import MoveButton from "../move-button";
 import Avatar from "../avatar";
+
 class Modal extends React.Component {
   constructor(props) {
     super(props);
@@ -21,6 +22,7 @@ class Modal extends React.Component {
       });
     }
   }
+
   handleNext(move) {
     let updateIndex = this.state.index;
     this.setState({
@@ -45,31 +47,46 @@ class Modal extends React.Component {
   passIndexToParent2() {
     return this.state.index;
   }
+
+  defineImage = () => {};
+
   render() {
     let employee = this.employees[this.state.index];
     return (
-      <section className={`modal ${this.props.clas}`}>
-        <div className="modal-content">
-          <div className="modal-content-child">
-            <div className="modal-wrapper-close">×</div>
-            <header className="modal-wrapper-header">
-              {employee.firstName} {employee.lastName}
-            </header>
+      <section
+        className={`modal ${this.props.clas}  ${
+          employee.department === "Business"
+            ? "sunshine"
+            : employee.department === "Engineering"
+            ? "deep-purple"
+            : employee.department === "Design"
+            ? "roasted-peppers"
+            : ""
+        }`}
+      >
+        <div className={`modal-content`}>
+          <div className="modal-content-close"></div>
+          <header className="modal-content-header">
+            {employee.firstName} {employee.lastName}
+          </header>
+          <div className="modal-content-wrapper">
             <Avatar url={employee.avatar} size="large" type="rounded" />
-            <h4 className="modal-wrapper-content-department">{employee.departMent}</h4>
-            <div className="modal-wrapper-content-title">{employee.jobTitle}</div>
-            <footer className="modal-wrapper-footer"></footer>
+            <h4 className="modal-content-wrapper-department">{employee.department}</h4>
+            <div className="modal-content-wrapper-title">{employee.jobTitle}</div>
+            <p className="modal-content-wrapper-bio">{employee.bio}</p>
           </div>
-          <MoveButton
-            countType="previous"
-            indexOfEmployee={this.state.index}
-            parentCallBack={this.handlePrevious}
-          />
-          <MoveButton
-            countType="next"
-            indexOfEmployee={this.state.index}
-            parentCallBack={this.handleNext}
-          />
+          <footer className="modal-content-footer">
+            <MoveButton
+              countType="previous"
+              parentCallBack={this.handlePrevious}
+              index1={this.state.index}
+            />
+            <MoveButton
+              countType="next"
+              parentCallBack={this.handleNext}
+              index2={this.state.index}
+            />
+          </footer>
         </div>
       </section>
     );

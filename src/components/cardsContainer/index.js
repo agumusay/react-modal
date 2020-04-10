@@ -15,15 +15,10 @@ class CardsContainer extends React.Component {
     this.employees = this.props.employees;
   }
 
-  getValueFromChild = (childValue) => {
+  getValuesFromCard = (childValue) => {
     this.setState({
-      open: childValue,
-    });
-  };
-
-  getIndexFromChild = (childIndex) => {
-    this.setState({
-      index: childIndex,
+      open: childValue[0],
+      index: childValue[1],
     });
   };
 
@@ -38,7 +33,6 @@ class CardsContainer extends React.Component {
     });
   };
   render() {
-    console.log(this.state.updateIndex);
     return (
       <section className="cards-container">
         {this.employees.map((employee) => {
@@ -48,8 +42,7 @@ class CardsContainer extends React.Component {
               employee={employee}
               key={employee.id}
               updateIndex={this.state.updateIndex}
-              parentCallBack2={this.getValueFromChild}
-              parentCallBack3={this.getIndexFromChild}
+              parentCallBack={this.getValuesFromCard}
             />
           );
         })}
@@ -59,9 +52,7 @@ class CardsContainer extends React.Component {
           initialIndex={this.state.index}
           parentCallBack={this.getUpdatedIndexFromModal}
           parentCallBack2={this.getUpdatedIndexFromModal2}
-        >
-          
-        </Modal>
+        ></Modal>
       </section>
     );
   }

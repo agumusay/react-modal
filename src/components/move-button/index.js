@@ -4,7 +4,7 @@ class MoveButton extends React.Component {
   constructor(props) {
     super(props);
 
-    this.state = {};
+   
 
     this.text = this.props.countType === "next" ? "Next" : "Previous";
     this.handleClick = this.handleClick.bind(this);
@@ -14,17 +14,15 @@ class MoveButton extends React.Component {
     this.props.parentCallBack(this.props.countType);
   }
 
-  passValueToParent() {
-    return this.state.counter;
-  }
-
   render() {
-    console.log(this.props.indexOfEmployee);
     return (
       <button
         onClick={this.handleClick}
-        className={this.props.clas}
-        disabled={this.props.indexOfEmployee <= -1 || this.props.indexOfEmployee > 41}
+        className={this.props.countType}
+        disabled={
+          (this.props.countType === "previous" && this.props.index1 <= 0) ||
+          (this.props.countType === "next" && this.props.index2 >= 41)
+        }
       >
         {this.text}
       </button>

@@ -16,22 +16,19 @@ class Card extends React.Component {
   }
 
   openModal() {
-    let index = this.passIndexToParent();
     this.setState({
       isModalOpen: true,
     });
-    this.props.parentCallBack2(true);
-    this.props.parentCallBack3(index);
-  }
 
-  passValueToParent() {
-    return this.state.isModalOpen;
+    this.props.parentCallBack([true, this.passIndexToParent()]);
   }
 
   passIndexToParent() {
     return this.indexOfEmployee;
   }
+
   render() {
+    
     return (
       <section className="card" onClick={this.openModal}>
         <div className="card-bar">

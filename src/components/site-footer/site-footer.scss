@@ -1,0 +1,19 @@
+@import "../../styles/mixins";
+@import "../../styles/variables";
+
+.footer {
+  min-height: 100px;
+  padding: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: rgb(212, 233, 238);
+  .link-1 {
+    font-weight: bold;
+    color: rgb(3, 0, 192);
+  }
+  .link-2 {
+    font-weight: bold;
+    color: purple;
+  }
+}
