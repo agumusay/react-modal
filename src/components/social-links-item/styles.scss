@@ -1,0 +1,29 @@
+@import "../../styles/variables";
+@import "../../styles/mixins";
+
+.social-links-list img {
+  min-width: 30px;
+  height: 30px;
+  box-shadow: none;
+}
+
+.social-links-list p {
+  margin-top: 10px;
+}
+.social-links-list a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 250px;
+  border-radius: 0.4rem;
+  text-decoration: none;
+}
+
+.social-links-list a:hover > p {
+  color: #ff0000;
+}
+
+.social-links-list a:hover > img {
+  filter: invert(18%) sepia(91%) saturate(7041%) hue-rotate(358deg) brightness(97%) contrast(115%);
+}

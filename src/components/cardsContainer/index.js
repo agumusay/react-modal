@@ -13,6 +13,7 @@ class CardsContainer extends React.Component {
     };
 
     this.employees = this.props.employees;
+    this.closeModal = this.closeModal.bind(this);
   }
 
   getValuesFromCard = (childValue) => {
@@ -32,6 +33,12 @@ class CardsContainer extends React.Component {
       updateIndex: updatedIndex,
     });
   };
+
+  closeModal() {
+    this.setState({
+      open: false,
+    });
+  }
   render() {
     return (
       <section className="cards-container">
@@ -52,7 +59,9 @@ class CardsContainer extends React.Component {
           initialIndex={this.state.index}
           parentCallBack={this.getUpdatedIndexFromModal}
           parentCallBack2={this.getUpdatedIndexFromModal2}
-        ></Modal>
+        >
+          <div className="modal-close" onClick={this.closeModal}></div>
+        </Modal>
       </section>
     );
   }

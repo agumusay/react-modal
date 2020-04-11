@@ -8,6 +8,8 @@
   border: 1px solid $text-secondary;
   border-radius: 1rem;
   transition: box-shadow 0.4s ease-in-out;
+  width: 30%;
+  margin: 10px;
 
   &-bar {
     background-color: $card-primary;

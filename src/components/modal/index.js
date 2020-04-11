@@ -1,6 +1,10 @@
 import React from "react";
 import MoveButton from "../move-button";
 import Avatar from "../avatar";
+import SocialLinksList from "../social-links-list";
+import pattern1 from "./pattern1.jpg";
+import pattern2 from "./pattern2.jpg";
+import pattern3 from "./pattern3.jpg";
 
 class Modal extends React.Component {
   constructor(props) {
@@ -48,8 +52,6 @@ class Modal extends React.Component {
     return this.state.index;
   }
 
-  defineImage = () => {};
-
   render() {
     let employee = this.employees[this.state.index];
     return (
@@ -64,16 +66,32 @@ class Modal extends React.Component {
             : ""
         }`}
       >
+        {this.props.children}
         <div className={`modal-content`}>
-          <div className="modal-content-close"></div>
           <header className="modal-content-header">
-            {employee.firstName} {employee.lastName}
+            <img
+              className="modal-content-header-image"
+              src={
+                employee.department === "Business"
+                  ? pattern3
+                  : employee.department === "Engineering"
+                  ? pattern1
+                  : employee.department === "Design"
+                  ? pattern2
+                  : ""
+              }
+              alt=""
+            />
+            <h1 className="modal-content-header-title">
+              {employee.firstName} {employee.lastName}
+            </h1>
           </header>
           <div className="modal-content-wrapper">
             <Avatar url={employee.avatar} size="large" type="rounded" />
             <h4 className="modal-content-wrapper-department">{employee.department}</h4>
             <div className="modal-content-wrapper-title">{employee.jobTitle}</div>
             <p className="modal-content-wrapper-bio">{employee.bio}</p>
+            <SocialLinksList contact={employee.contact} />
           </div>
           <footer className="modal-content-footer">
             <MoveButton

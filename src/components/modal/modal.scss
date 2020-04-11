@@ -2,16 +2,17 @@
 @import "../../styles/variables";
 
 .modal {
-  justify-content: center;
-  min-width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   position: fixed;
   left: 0;
   top: 0;
   display: none;
   background-color: rgba(29, 29, 29, 0.363);
+  justify-content: center;
+  align-items: center;
 
-  &-content-close {
+  &-close {
     width: 20px;
     height: 20px;
     color: white;
@@ -19,41 +20,49 @@
     text-align: center;
     background-image: url(../../images/close-cross.svg);
     position: absolute;
-    right: 0;
-    top: -35px;
-    z-index: 2;
+    right: 12.5%;
+    top: 10vh;
     background-size: cover;
   }
   &-content {
     position: relative;
-    width: 60%;
-    height: 70vh;
-    top: 15vh;
+    width: 70%;
+    height: 75vh;
     background-color: $color-primary;
-    left: 20%;
-    border-radius: 1rem;
+    border-radius: 10px;
     overflow: hidden;
     &-header {
       width: 100%;
-      background-color: red;
       height: 15%;
-      padding: 21px;
       font-weight: bold;
       font-size: 1.2rem;
       color: $color-primary;
-      border-top-left-radius: 1rem;
-      border-top-right-radius: 1rem;
+      position: relative;
+      z-index: 3;
+      &-title {
+        padding: 20px;
+        color: $color-primary;
+      }
+      &-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        position: absolute;
+        z-index: -1;
+        opacity: 0.08;
+        object-position: center;
+      }
     }
     &-wrapper {
-      display: flex;
+      display: block;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      height: 70%;
       justify-content: center;
       overflow-y: scroll;
-      height: 70%;
-      padding-top: 70px;
-
+      text-align: center;
+      padding: 0px 20px;
+      padding-top: 20px;
       &-department {
         margin-bottom: 5px;
       }
@@ -65,9 +74,10 @@
         margin-bottom: 10px;
         text-align: center;
       }
-      img {
-        margin: 20px;
+      .modal-avatar {
+        margin-bottom: 20px;
         box-shadow: 0px 0px 5px black;
+        height: 120px;
       }
     }
     &-footer {
@@ -78,11 +88,10 @@
       bottom: 0;
       width: 100%;
       height: 15%;
-      border-bottom-left-radius: 1rem;
-      border-bottom-right-radius: 1rem;
       display: flex;
       padding: 15px;
       justify-content: space-between;
+      background-color: $color-primary;
     }
   }
   button {
@@ -94,7 +103,7 @@
 }
 
 .show {
-  display: block;
+  display: flex;
 }
 
 .deep-purple {

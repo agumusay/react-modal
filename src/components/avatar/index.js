@@ -10,7 +10,7 @@ class Avatar extends React.Component {
   render() {
     return (
       <img
-        className={`${this.props.name} ${this.props.type} ${this.props.size}`}
+        className={`modal-avatar ${this.props.name} ${this.props.type} ${this.props.size}`}
         src={this.props.url}
         alt={``}
       ></img>
