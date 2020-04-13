@@ -66,8 +66,8 @@ class Modal extends React.Component {
             : ""
         }`}
       >
-        {this.props.children}
         <div className={`modal-content`}>
+          {this.props.children}
           <header className="modal-content-header">
             <img
               className="modal-content-header-image"

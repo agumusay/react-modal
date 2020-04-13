@@ -60,7 +60,7 @@ class CardsContainer extends React.Component {
           parentCallBack={this.getUpdatedIndexFromModal}
           parentCallBack2={this.getUpdatedIndexFromModal2}
         >
-          <div className="modal-close" onClick={this.closeModal}></div>
+          <div className="modal-content-close" onClick={this.closeModal}></div>
         </Modal>
       </section>
     );
