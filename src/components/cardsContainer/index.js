@@ -1,70 +1,50 @@
 import "./cards-container.scss";
-import React from "react";
+import React, { useState } from "react";
 import Card from "../../components/card";
 import Modal from "../../components/modal";
-class CardsContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      data: null,
-      open: false,
-      index: 0,
-      updateIndex: 0,
-    };
 
-    this.employees = this.props.employees;
-    this.closeModal = this.closeModal.bind(this);
-  }
+function CardsContainer(props) {
+  let [open, setOpen] = useState(false);
+  let [index, setIndex] = useState(0);
+  let [updateIndex, setUpdatedIndex] = useState(0);
+  const employees = props.employees;
 
-  getValuesFromCard = (childValue) => {
-    this.setState({
-      open: childValue[0],
-      index: childValue[1],
-    });
+  const getValuesFromCard = (childValue) => {
+    setOpen(true);
+    setIndex(childValue);
   };
 
-  getUpdatedIndexFromModal = (updatedIndex) => {
-    this.setState({
-      updateIndex: updatedIndex,
-    });
-  };
-  getUpdatedIndexFromModal2 = (updatedIndex) => {
-    this.setState({
-      updateIndex: updatedIndex,
-    });
+  const getIndexFromModal = (updatedIndex) => {
+    setUpdatedIndex(updatedIndex);
   };
 
-  closeModal() {
-    this.setState({
-      open: false,
-    });
-  }
-  render() {
-    return (
-      <section className="cards-container">
-        {this.employees.map((employee) => {
-          return (
-            <Card
-              employees={this.employees}
-              employee={employee}
-              key={employee.id}
-              updateIndex={this.state.updateIndex}
-              parentCallBack={this.getValuesFromCard}
-            />
-          );
-        })}
-        <Modal
-          clas={this.state.open ? "show" : ""}
-          employees={this.employees}
-          initialIndex={this.state.index}
-          parentCallBack={this.getUpdatedIndexFromModal}
-          parentCallBack2={this.getUpdatedIndexFromModal2}
-        >
-          <div className="modal-content-close" onClick={this.closeModal}></div>
-        </Modal>
-      </section>
-    );
-  }
+  const closeModal = () => {
+    setOpen(false);
+  };
+
+  return (
+    <section className="cards-container">
+      {employees.map((employee) => {
+        return (
+          <Card
+            employees={employees}
+            employee={employee}
+            key={employee.id}
+            updateIndex={updateIndex}
+            parentCallBack={getValuesFromCard}
+          />
+        );
+      })}
+      <Modal
+        clas={open ? "show" : ""}
+        employees={employees}
+        initialIndex={index}
+        parentCallBack={getIndexFromModal}
+      >
+        <div className="modal-content-close" onClick={closeModal}></div>
+      </Modal>
+    </section>
+  );
 }
 
 export default CardsContainer;

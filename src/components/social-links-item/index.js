@@ -1,6 +1,5 @@
 import React from "react";
 import "./styles.scss";
-
 import phoneLogo from "./phone.svg";
 import mailLogo from "./email.svg";
 import webLogo from "./www.svg";
